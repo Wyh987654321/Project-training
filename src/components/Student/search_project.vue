@@ -8,7 +8,7 @@
     </el-breadcrumb>
 
     <h2 style="margin-top: 5vh;margin-left: 3vw">小组成员</h2>
-      <div class="a">
+      <div class="div_search">
         <el-table
             :data="groupData"
             style="width: 90%"
@@ -36,7 +36,7 @@
       </div>
 
     <h2 style="margin-top: 5vh;margin-left: 3vw">指导老师</h2>
-      <div class="a">
+      <div class="div_search">
         <el-table :data="teacherData" style="width: 90%">
           <el-table-column
               prop="tea_name"
@@ -56,7 +56,7 @@
       </div>
 
     <h2 style="margin-top: 5vh;margin-left: 3vw">所选项目</h2>
-      <div class="a">
+      <div class="div_search">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>项目名称</span>
@@ -120,7 +120,7 @@
     background: #f0f9eb;
   }
 
-  .a {
+  .div_search {
     margin-top: 3vh;
     padding-left: 5vw;
   }
