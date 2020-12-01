@@ -7,7 +7,7 @@
       <el-breadcrumb-item>课题介绍</el-breadcrumb-item>
     </el-breadcrumb>
 
-    <div class="a">
+    <div class="div_search_topic">
       <el-card class="box-card">
         <div slot="header" class="clearfix">
           <span>项目名称</span>
@@ -70,7 +70,7 @@
     margin-top: 5vh;
   }
 
-  .a {
+  .div_search_topic {
     margin-top: 5vh;
     padding-left: 10vw;
   }

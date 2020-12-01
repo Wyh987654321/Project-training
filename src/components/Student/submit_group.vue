@@ -7,7 +7,7 @@
       <el-breadcrumb-item>填写分组</el-breadcrumb-item>
     </el-breadcrumb>
 
-    <div class="a">
+    <div class="div_submit">
       <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign" :rules="submit_group_rules" ref="submitGroupRef">
         <el-col :span="10">
           <el-form-item label="组长学号：" prop="leader_id">
@@ -50,13 +50,26 @@ export default {
       this.$refs.submitGroupRef.validate(valid =>{
         console.log(valid);
       });
+
+      this.$confirm('确定提交？', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: '提交成功!'
+        });
+      }).catch(() => {
+      });
+
     }
   }
 }
 </script>
 
 <style>
-  .a {
+  .div_submit {
     margin-top: 5vh;
     padding-left: 20vw;
   }

@@ -8,7 +8,7 @@
     </el-breadcrumb>
 
     <h2 style="margin-top: 5vh;margin-left: 3vw">我的成绩</h2>
-    <div class="a">
+    <div class="div_search">
       <el-table :data="gradeData" style="width: 90%">
         <el-table-column
             prop="stu_id"
@@ -53,7 +53,7 @@
 </script>
 
 <style>
-  .a {
+  .div_search {
     margin-top: 3vh;
     padding-left: 5vw;
   }

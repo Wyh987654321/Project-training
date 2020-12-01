@@ -7,7 +7,7 @@
       <el-breadcrumb-item>提交项目</el-breadcrumb-item>
     </el-breadcrumb>
 
-    <div class="a">
+    <div class="div_submit">
       <el-form :model="form" label-width="110px" label-position="left" :rules="submit_project_rules" ref="submitProjectRef">
         <el-col :span="12">
           <el-form-item label="组长学号：" prop="leader_id">
@@ -56,13 +56,26 @@
         this.$refs.submitProjectRef.validate(valid =>{
           console.log(valid);
         });
+
+        this.$confirm('确定提交？', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '提交成功!'
+          });
+        }).catch(() => {
+        });
+
       }
     }
   }
 </script>
 
 <style >
-  .a {
+  .div_submit {
     margin-top: 5vh;
     padding-left: 20vw;
   }
