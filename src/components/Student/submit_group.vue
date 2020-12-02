@@ -7,17 +7,17 @@
       <el-breadcrumb-item>填写分组</el-breadcrumb-item>
     </el-breadcrumb>
 
-    <div class="a">
-      <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
+    <div class="div_submit">
+      <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign" :rules="submit_group_rules" ref="submitGroupRef">
         <el-col :span="10">
-          <el-form-item label="组长学号：" >
-            <el-input v-model="formLabelAlign.leader_num" size="small" clearable></el-input>
+          <el-form-item label="组长学号：" prop="leader_id">
+            <el-input v-model="formLabelAlign.leader_id" size="small" clearable></el-input>
           </el-form-item>
-          <el-form-item label="我的学号：" >
-            <el-input v-model="formLabelAlign.my_num" size="small" clearable></el-input>
+          <el-form-item label="我的学号：" prop="my_id">
+            <el-input v-model="formLabelAlign.my_id" size="small" clearable></el-input>
           </el-form-item>
           <div style="width:100%;text-align:center">
-            <el-button type="primary" @click="onSubmit" style="margin-top: 10vh">提交分组</el-button>
+            <el-button type="primary" @click="submit_group" style="margin-top: 10vh">提交分组</el-button>
           </div>
         </el-col>
       </el-form>
@@ -32,22 +32,46 @@ export default {
     return {
       labelPosition: 'top',
       formLabelAlign: {
-        leader_num: '',
-        my_num: '',
-      }
+        leader_id: '',
+        my_id: '',
+      },
+      submit_group_rules: {
+        leader_id: [
+          { required: true, message: '请输入组长学号', trigger: 'blur' },
+        ],
+        my_id: [
+          { required: true, message: '请输入我的学号', trigger: 'blur' },
+        ],
+      },
     };
   },
   methods: {
-    onSubmit() {
-      console.log('submit!');
+    submit_group() {
+      this.$refs.submitGroupRef.validate(valid =>{
+        console.log(valid);
+      });
+
+      this.$confirm('确定提交？', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: '提交成功!'
+        });
+      }).catch(() => {
+      });
+
     }
   }
 }
 </script>
 
-<style >
-  .a {
+<style>
+  .div_submit {
     margin-top: 5vh;
     padding-left: 20vw;
   }
+
 </style>
