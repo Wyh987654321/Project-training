@@ -12,13 +12,34 @@ import search_document from '@/components/Student/search_document'
 import search_reply from '@/components/Student/search_reply'
 import search_grade from '@/components/Student/search_grade'
 import login_out from '@/components/Student/login_out'
-
+import Teacher_Home from "@/components/Teacher_Home";
+import submit_topic from '@/components/Teacher/submit_topic'
+import search_reply from '@/components/Teacher/search_reply'
+import search_group from '@/components/Teacher/search_group'
+import grade_reply from '@/components/Teacher/grade_reply'
+import grade_guide from '@/components/Teacher/grade_guide'
 Vue.use(Router)
+
 
 const router = new Router({
     routes: [
-        { path: '/' , redirect: '/login' },
+
+        { path: '/' , redirect: '/teacher_home' },
         { path: '/login' , component: Login },
+        { path: '/teacher_home' ,
+            component: Teacher_Home ,
+            redirect: '/welcome' ,
+            children: [
+                { path: '/welcome' , component: Welcome},
+                { path: '/submit_topic' , component: submit_topic},
+                { path: '/search_reply' , component: search_reply},
+                { path: '/search_group' , component: search_group},
+                { path: '/grade_reply' , component: grade_reply},
+                { path: '/grade_guide' , component: grade_guide},
+            ],
+        },
+        
+        
         { path: '/student_home' ,
           component: Student_Home ,
           redirect: '/welcome' ,
@@ -34,6 +55,7 @@ const router = new Router({
               { path: '/search_grade' , component: search_grade},
               { path: '/login_out' , component: login_out},
           ]
+
         }
     ]
 })

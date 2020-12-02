@@ -7,7 +7,7 @@
         <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
           <el-menu :default-openeds="default_index" router>
             <el-submenu index="1">
-              <template slot="title"><i class="el-icon-s-order"></i>信息填写</template>
+              <template slot="title"><i class="el-icon-s-order"></i>填写信息</template>
 
               <el-menu-item index="submit_group" @click="isClick('1')"><i class="el-icon-arrow-right"></i>填写分组</el-menu-item>
               <el-menu-item index="submit_topic" @click="isClick('1')"><i class="el-icon-arrow-right"></i>提交选题</el-menu-item>
